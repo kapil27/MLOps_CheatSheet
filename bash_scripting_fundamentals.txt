@@ -1,0 +1,96 @@
+bash scripting fundamentals
+
+
+#######################################
+1.Suppose you have a set of files and you want to add a prefix to each filename.
+
+#!/bin/bash
+
+# Directory containing files
+directory="/path/to/your/directory"
+
+# Prefix to add
+prefix="new_"
+
+# Change to the target directory
+cd "$directory" || exit
+
+# Loop through files and rename
+for file in *; do 
+    # Check if it's a file
+    if [ -f "$file" ]; then
+        mv "$file" "${prefix}${file}"
+        echo "Renamed $file to ${prefix}${file}"
+    fi
+done
+
+
+This script organizes files in a directory by moving them into subdirectories based on their file extensions:
+
+#!/bin/bash
+# Directory containing files
+directory="/path/to/your/directory"
+
+# Change to the target directory
+cd "$directory" || exit
+
+# Loop through files and organize by extension
+for file in *.*; do
+    # Check if it's a file
+    if [ -f "$file" ]; then
+        # Get the file extension
+        ext="${file##*.}"
+        # Create a directory for the extension if it doesn't exist
+        mkdir -p "$ext"
+        # Move the file into the corresponding directory
+        mv "$file" "$ext/"
+        echo "Moved $file to $ext/"
+    fi
+done
+
+
+This script renames files to a specific format and moves them to a new directory:
+
+#!/bin/bash
+
+# Source and target directories
+source_dir="/path/to/source_directory"
+target_dir="/path/to/target_directory"
+
+# Prefix and suffix for renaming
+prefix="file_"
+suffix=".txt"
+
+# Create target directory if it doesn't exist
+mkdir -p "$target_dir"
+
+# Loop through files in the source directory
+for file in "$source_dir"/*; do
+    # Check if it's a file
+    if [ -f "$file" ]; then
+        # Get the base filename and extension
+        base=$(basename "$file")
+        # Construct new filename
+        new_filename="${prefix}${base%.*}${suffix}"
+        # Move and rename the file
+        mv "$file" "$target_dir/$new_filename"
+        echo "Moved and renamed $file to $target_dir/$new_filename"
+    fi
+done
+
+
+Explain the use of grep, awk, and sed in shell scripting.
+
+Answer:
+grep is used for searching text using patterns.
+awk is a powerful text-processing language used for pattern scanning and processing.
+sed is a stream editor used for basic text transformations on an input stream.
+
+
+Create a Bash script that counts the number of files in a directory and prints the count.
+
+#!/bin/bash
+
+DIR="/path/to/directory"
+COUNT=$(ls -1 "$DIR" | wc -l)
+echo "Number of files in $DIR: $COUNT"
