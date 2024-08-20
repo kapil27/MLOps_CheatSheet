@@ -1,1 +1,68 @@
 
+How do you check disk usage in Linux?
+Answer: You can use the df command to check disk space usage for mounted filesystems:
+    df -h
+
+How do you change file permissions in Linux?
+Answer: Use the chmod command:
+  chmod 755 filename
+Here, 755 sets read, write, and execute permissions for the owner and read and execute permissions for others.
+chmod 755 grants read, write, and execute permissions to the owner and read and execute permissions to the group and others.
+
+How do you list running processes?
+Answer: Use the ps command:
+    ps aux
+Or use top or htop for an interactive view.
+
+How do you kill a process in Linux?
+Answer: Use the kill command with the process ID (PID):
+  kill PID
+
+How do you find the IP address of a machine?
+Answer: Use the hostname command with the -I option or ip command:
+
+  hostname -I
+  ip addr show
+
+How do you add a new user in Linux?
+Answer: Use the useradd command:
+  sudo useradd username
+  sudo passwd username
+
+Advanced Topics
+What is a cron job?
+Answer: A cron job is a scheduled task that runs automatically at specified intervals. Cron jobs are managed by the cron daemon and configured using the crontab command:
+  crontab -e
+
+How do you troubleshoot a service that won’t start?
+Answer: Check logs in /var/log/, use systemctl status service-name, and review the service configuration files. You can also use journalctl -u service-name for systemd services.
+
+Explain the difference between a hard link and a symbolic link.
+Answer: A hard link is an additional directory entry for an existing file, sharing the same inode number. A symbolic (or soft) link is a separate file that points to another file or directory, and it can cross filesystem boundaries.
+
+What are the different types of file permissions in Linux, and how do you set them?
+Answer: Linux file permissions include read (r), write (w), and execute (x) for the owner, group, and others. Permissions are set using the chmod command, with numeric (e.g., chmod 755 file) or symbolic (e.g., chmod u+x file) methods.
+
+Explain the role of the /etc/fstab file.
+Answer: The /etc/fstab file contains information about disk partitions and their mount points. It is used by the system to automatically mount filesystems during boot.
+
+What is the purpose of the swap space in Linux, and how do you manage it?
+Answer: Swap space is used as virtual memory to extend physical RAM. It can be managed using the mkswap command to create a swap area and swapon to enable it. You can check swap usage with swapon -s and adjust it as needed.
+
+How do you configure a static IP address on a Linux system?
+Answer: Configuration depends on the distribution:
+Debian/Ubuntu: Edit /etc/network/interfaces or use netplan configuration files in /etc/netplan/.
+Red Hat/CentOS: Edit the relevant file in /etc/sysconfig/network-scripts/, such as ifcfg-eth0.
+
+What is the purpose of the cron daemon, and how do you schedule tasks with it?
+Answer: The cron daemon schedules and executes tasks automatically at specified intervals. Tasks are scheduled using crontab files. You can edit the crontab with crontab -e and specify the timing and commands to run.
+
+Describe how the Linux kernel interacts with hardware.
+Answer: The Linux kernel is responsible for managing hardware resources and providing an interface between hardware and software. It handles device drivers, system calls, and process management.
+
+Explain the purpose of the systemd init system and how it differs from SysVinit.
+Answer: systemd is a modern init system that manages services, logs, and system states. It uses unit files and is designed to handle parallel service start-up and better dependency management, unlike the older SysVinit system which uses init scripts
+
+What is the lsblk command used for?
+Answer: The lsblk command lists information about block devices (like hard drives and partitions), showing device names, types, and mount points..
+
