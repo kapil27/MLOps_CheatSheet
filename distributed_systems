@@ -1,0 +1,92 @@
+What is a distributed system?
+
+Answer: A distributed system is a model in which components located on networked computers communicate and coordinate their actions by passing messages. The components interact with each other in order to achieve a common goal. Distributed systems can improve scalability, fault tolerance, and resource sharing.
+What are the main challenges in distributed systems?
+
+Answer: The main challenges include:
+Consistency: Ensuring all nodes have the same data view.
+Fault Tolerance: Handling failures of nodes or communication links.
+Scalability: Efficiently scaling the system as the number of nodes increases.
+Latency: Minimizing communication delays between nodes.
+Security: Ensuring secure communication and data handling.
+Explain the CAP Theorem.
+
+Answer: The CAP Theorem states that in a distributed system, you can only achieve two out of the following three properties simultaneously:
+Consistency: All nodes see the same data at the same time.
+Availability: Every request receives a response, either success or failure.
+Partition Tolerance: The system continues to operate despite network partitions or communication failures.
+What is eventual consistency?
+
+Answer: Eventual consistency is a consistency model used in distributed systems where, given enough time, all replicas of a piece of data will converge to the same value. It allows for temporary inconsistencies but ensures that all updates will eventually propagate to all nodes.
+What is a distributed ledger?
+
+Answer: A distributed ledger is a database that is spread across multiple nodes or locations. It is maintained by a consensus mechanism and provides a decentralized and tamper-resistant way to record transactions, such as in blockchain technologies.
+Technical Scenarios
+How would you design a fault-tolerant distributed system?
+
+Answer: To design a fault-tolerant distributed system:
+Replication: Use data replication to ensure copies of data are stored on multiple nodes.
+Redundancy: Implement redundant components to handle failures without affecting the system.
+Failover Mechanisms: Automatically switch to backup components if a primary component fails.
+Monitoring and Alerts: Continuously monitor system health and set up alerts for failures.
+Describe a scenario where you need to balance between consistency and availability.
+
+Answer: In an online transaction processing system, you might need to balance consistency and availability. For example, during high traffic, you might prioritize availability to ensure users can still make purchases, even if some recent transactions may not be immediately visible to all users.
+What is data sharding, and why is it used?
+
+Answer: Data sharding involves dividing a large dataset into smaller, more manageable pieces, called shards, which are distributed across multiple nodes. It is used to improve performance, scalability, and manageability of large databases by allowing parallel processing and reducing load on any single node.
+How do you handle network partitions in a distributed system?
+
+Answer: Handling network partitions involves:
+Partition Tolerance: Ensuring the system can continue to operate despite partitions.
+Conflict Resolution: Implementing mechanisms to resolve conflicts that arise from inconsistent data.
+Data Replication: Ensuring data is replicated across nodes to minimize the impact of partitions.
+Explain how a distributed file system works.
+
+Answer: A distributed file system allows files to be stored across multiple servers or nodes. It provides a unified view of the file system to users, manages file metadata, and ensures file replication and consistency. Examples include Hadoop Distributed File System (HDFS) and Google File System (GFS).
+Cloud and Distributed Systems
+What is cloud computing, and how does it relate to distributed systems?
+
+Answer: Cloud computing is the delivery of computing services (such as servers, storage, databases, networking, software) over the internet (the cloud). It relies on distributed systems to provide scalable, reliable, and on-demand resources and services.
+What are the differences between IaaS, PaaS, and SaaS?
+
+Answer:
+IaaS (Infrastructure as a Service): Provides virtualized computing resources over the internet. Examples: AWS EC2, Google Compute Engine.
+PaaS (Platform as a Service): Provides a platform allowing customers to develop, run, and manage applications without dealing with infrastructure. Examples: AWS Elastic Beanstalk, Google App Engine.
+SaaS (Software as a Service): Delivers software applications over the internet, typically on a subscription basis. Examples: Google Workspace, Microsoft Office 365.
+How do distributed systems leverage cloud services for scalability?
+
+Answer: Cloud services provide on-demand resources, such as virtual machines and storage, which can be scaled up or down based on the system's needs. Distributed systems use cloud services to dynamically adjust their capacity, ensuring they can handle varying workloads efficiently.
+What is a microservices architecture, and how does it relate to distributed systems?
+
+Answer: Microservices architecture is a design pattern where an application is composed of small, loosely coupled services, each responsible for a specific functionality. Each microservice is independently deployable and communicates with other services over a network. This architecture is a form of distributed system, where each microservice can be distributed across different nodes or servers.
+Explain how you would use a distributed system for a real-time analytics application.
+
+Answer: For a real-time analytics application:
+Data Ingestion: Use distributed data streaming platforms like Apache Kafka to collect and ingest data in real time.
+Data Processing: Use distributed processing frameworks like Apache Spark or Flink to process and analyze data streams.
+Storage: Store processed data in distributed databases or data warehouses that support high throughput and low latency.
+Scalability: Ensure the system can scale horizontally by adding more nodes to handle increased data volumes and processing demands.
+Advanced Topics
+What is a consensus algorithm, and why is it important in distributed systems?
+
+Answer: A consensus algorithm is a protocol used to achieve agreement on a single data value among distributed nodes or systems. It is crucial for maintaining consistency and reliability in distributed systems, particularly in the presence of failures or network partitions. Examples include Paxos and Raft.
+What is distributed transaction management, and how does it work?
+
+Answer: Distributed transaction management ensures that transactions spanning multiple nodes or systems are completed successfully and consistently. It involves techniques like Two-Phase Commit (2PC) or Three-Phase Commit (3PC) to coordinate and ensure all parts of the transaction are committed or rolled back.
+How do you ensure data consistency in a distributed database?
+
+Answer: To ensure data consistency:
+Replication: Use data replication techniques to keep copies of data synchronized across nodes.
+Consistency Models: Implement consistency models such as strong consistency or eventual consistency based on the application’s requirements.
+Conflict Resolution: Implement mechanisms to resolve conflicts that arise due to concurrent updates.
+What is a distributed cache, and how does it improve performance?
+
+Answer: A distributed cache is a caching system that spans multiple nodes, providing a shared cache for all application instances. It improves performance by reducing the load on databases and speeding up data retrieval times. Examples include Redis and Memcached.
+How would you handle versioning in a distributed system?
+
+Answer: Handle versioning by:
+Schema Evolution: Design the system to accommodate changes in data schema without breaking existing functionality.
+API Versioning: Implement versioning for APIs to manage changes in service interfaces.
+Backward Compatibility: Ensure that new versions are compatible with older versions to avoid disruptions.
+These questions cover a broad range of topics related to distributed systems, from fundamental concepts to practical scenarios and cloud-related aspects. Preparing answers to these questions will help you demonstrate a strong understanding of distributed systems during your interview.
