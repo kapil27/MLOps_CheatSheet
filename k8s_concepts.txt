@@ -1,0 +1,53 @@
+K8s Concepts.
+
+What is Kubernetes, and what are its main components?
+
+Answer: Kubernetes is an open-source container orchestration platform designed to automate deploying, scaling, and managing containerized applications. Its main components include:
+Master Node: Manages the Kubernetes cluster and includes components like the API server, scheduler, and controller manager.
+Worker Nodes: Run containerized applications and include components like kubelet, kube-proxy, and container runtime.
+Pods: The smallest deployable units in Kubernetes, which can contain one or more containers.
+Services: Define policies for accessing and managing pods.
+Deployments: Manage and scale pods and replicas.
+ConfigMaps and Secrets: Manage configuration and sensitive data.
+
+
+What is a Pod in Kubernetes?
+
+Answer: A Pod is the smallest and simplest Kubernetes object. It represents a single instance of a running process in the cluster and can encapsulate 
+one or more containers. Pods share the same network namespace and can communicate with each other using localhost.
+
+Explain the role of a Deployment in Kubernetes.
+
+Answer: A Deployment is a Kubernetes resource that provides declarative updates to applications. It manages the creation, scaling, and rolling updates of Pods. With a Deployment, 
+you can ensure that a specified number of pod replicas are running at all times and manage updates to those pods without downtime.
+
+How does Kubernetes handle scaling of applications?
+
+Answer: Kubernetes handles scaling through Deployments and Horizontal Pod Autoscalers (HPA). You can manually scale applications by adjusting the replica count in a Deployment. 
+The HPA automatically adjusts the number of pod replicas based on CPU utilization or other metrics.
+
+What are Kubernetes Services, and what types are there?
+
+Answer: Kubernetes Services provide stable networking and load balancing for Pods. Types of Services include:
+ClusterIP: Exposes the Service on a cluster-internal IP. This is the default type.
+NodePort: Exposes the Service on each node’s IP at a static port. This makes the Service accessible externally.
+LoadBalancer: Exposes the Service externally using a cloud provider’s load balancer.
+Headless Service: No load balancing or proxying; useful for StatefulSets.
+
+Explain the concept of Namespaces in Kubernetes.
+
+Answer: Namespaces are a way to partition resources in a Kubernetes cluster. They provide a mechanism for isolating resources, such as Pods, Services, and Deployments, 
+within a single cluster. This helps in organizing and managing resources for different teams or projects.
+
+What is a StatefulSet and how does it differ from a Deployment?
+
+Answer: A StatefulSet is a Kubernetes resource designed for managing stateful applications. Unlike Deployments, StatefulSets provide stable, unique network identities and persistent storage for Pods. 
+They ensure the ordering and uniqueness of Pods, which is crucial for stateful applications like databases.
+
+How does Kubernetes ensure high availability and fault tolerance?
+
+Answer: Kubernetes ensures high availability and fault tolerance through:
+Replication: Using Deployments and ReplicaSets to ensure multiple replicas of Pods.
+Pod Distribution: Spreading Pods across nodes to prevent single points of failure.
+Health Checks: Implementing liveness and readiness probes to detect and replace unhealthy Pods.
+Automatic Rescheduling: Restarting Pods on different nodes if a node fails
